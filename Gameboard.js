@@ -12,9 +12,9 @@ const gameBoard = (function() {
         let cell = currentBoardState[indeces[0]][indeces[1]];
         if (cell === "") {
             currentBoardState[indeces[0]][indeces[1]] = data.marker;
-            gameEvents.invoke(MARK_PLACED_EVENT, null);
             checkWinState();
-            console.log(currentBoardState); //for testing
+            console.table(currentBoardState); //for testing
+            gameEvents.invoke(MARK_PLACED_EVENT, null);
         }
     }
 

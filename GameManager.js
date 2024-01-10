@@ -6,6 +6,11 @@ const gameManager = (function() {
 
     const changePlayerTurn = function() {
         playerWithTurn = playerWithTurn == player1 ? player2 : player1;
+
+        if (playerWithTurn == player2) {
+            let indeces = getComputerMarkIndeces();
+            playerAction(indeces);
+        }
     }
 
     const playerAction = function(indeces) {
