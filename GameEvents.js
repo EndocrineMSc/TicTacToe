@@ -1,5 +1,4 @@
 //events (publish subscribe) pattern
-
 const gameEvents = {
     events: {},
     subscribe: function (eventName, fn) {
@@ -24,3 +23,9 @@ const gameEvents = {
       }
     }
 };
+
+//event names
+const PLAYER_ACTION_EVENT = "onPlayerAction";
+const MARK_PLACED_EVENT = "onMarkPlaced";
+const GAME_WON_EVENT = "onGameWon";
+const DRAW_EVENT = "onGameDraw";
