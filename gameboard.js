@@ -14,7 +14,7 @@ const gameBoard = (function() {
             currentBoardState[indeces[0]][indeces[1]] = data.marker;
             checkWinState();
             console.table(currentBoardState); //for testing
-            gameEvents.invoke(MARK_PLACED_EVENT, null);
+            gameEvents.invoke(MARK_PLACED_EVENT, currentBoardState);
         }
     }
 

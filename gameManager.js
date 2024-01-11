@@ -9,11 +9,14 @@ const gameManager = (function() {
 
         if (playerWithTurn == player2) {
             let indeces = getComputerMarkIndeces();
-            playerAction(indeces);
+            if (indeces) {
+                playerAction(indeces);  
+            }
         }
     }
 
-    const playerAction = function(indeces) {
+    const playerAction = function(data) {
+        let indeces = Array.isArray(data) ? data : [data.target.dataset.row, data.target.dataset.column];
         playerWithTurn.action(playerWithTurn.marker, indeces);
     }
 
