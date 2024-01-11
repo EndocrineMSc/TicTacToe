@@ -1,13 +1,28 @@
+:root {
+    --background-slate: #374151;
+    --gameBoard-color: #607D0F;
+    --button-color: #1F0F7D;
+    --text-color: #FCDD9D;
+}
+
+
 body {
-    background-color: aqua;
+    background-color: var(--background-slate);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 30px;
+    color: var(--text-color);
+}
+
+#title {
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 #board-container {
-    background-color: aquamarine;
+    background-color: var(--gameBoard-color);
     display: grid;
     width: 90vw;
     height: 90vw;
@@ -19,9 +34,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
     width: 100%;
     height: 100%;
     border: 1px solid black;
     font-size: 5rem;
+}
+
+#reset-button {
+    box-sizing: border-box;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: 5px groove var(--text-color);
+    border-radius: 15px;
+    width: 250px;
+    height: 75px;
+    font-size: 2rem;
+}
+
+#reset-button:hover {
+    filter: hue-rotate(25deg);
 }

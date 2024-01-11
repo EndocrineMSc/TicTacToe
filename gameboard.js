@@ -13,7 +13,6 @@ const gameBoard = (function() {
         if (cell === "") {
             currentBoardState[indeces[0]][indeces[1]] = data.marker;
             checkWinState();
-            console.table(currentBoardState); //for testing
             gameEvents.invoke(MARK_PLACED_EVENT, currentBoardState);
         }
     }
@@ -44,7 +43,7 @@ const gameBoard = (function() {
         
         //check top-left to bottom-right diagonal
         if (currentBoardState[0][0] != "" && currentBoardState[0][0] === currentBoardState[1][1] && currentBoardState[1][1] === currentBoardState[2][2]) {
-            invoke(GAME_WON_EVENT, currentBoardState[1][1]);
+            gameEvents.invoke(GAME_WON_EVENT, currentBoardState[1][1]);
             return;
         }
         // check top-right to bottom-left diagonal

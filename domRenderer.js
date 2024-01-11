@@ -28,8 +28,7 @@ const domRenderer = (function() {
             for (let k = 0; k < 3; k++) {
                 let cell = _getCellByIndeces(i,k);
                 let content = boardState[i][k];
-                cell.innerHTML = content; 
-                console.log(cell);
+                cell.innerHTML = content;
             }
         }
     }
