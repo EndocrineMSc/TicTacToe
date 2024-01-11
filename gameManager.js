@@ -2,22 +2,20 @@
 const gameManager = (function() {
     const player1 = new Player("Player", "X");
     const player2 = new Player("Computer", "O");
-    let playerWithTurn = player1;
+    let isGameOver = false;
 
-    const changePlayerTurn = function() {
-        playerWithTurn = playerWithTurn == player1 ? player2 : player1;
-
-        if (playerWithTurn == player2) {
-            let indeces = getComputerMarkIndeces();
-            if (indeces) {
-                playerAction(indeces);  
-            }
-        }
+    const handlePlayerActions = function(eventData) {
+        _performPlayerAction(eventData);
+        let indeces = getComputerMarkIndeces();
+        if (indeces) { _performPlayerAction(indeces); }    
     }
 
-    const playerAction = function(data) {
-        let indeces = Array.isArray(data) ? data : [data.target.dataset.row, data.target.dataset.column];
-        playerWithTurn.action(playerWithTurn.marker, indeces);
+    const _performPlayerAction = function(data) {
+        if (!isGameOver) {
+            let player = Array.isArray(data) ? player2 : player1;
+            let indeces = Array.isArray(data) ? data : [data.target.dataset.row, data.target.dataset.column];
+            player.action(player.marker, indeces);
+        }
     }
 
     const getComputerMarkIndeces = function() {
@@ -37,10 +35,17 @@ const gameManager = (function() {
         return emptyCells[randomCellIndex];
     }
 
-    const renderWinStat = function() {
-        //
+    const _setGameOverState = function(endState) {
+        isGameOver = true;
     }
-    gameEvents.subscribe(MARK_PLACED_EVENT, changePlayerTurn);
-    return {playerAction, getComputerMarkIndeces};
+
+    const _restart = function() {
+        isGameOver = false;
+    }
+
+    gameEvents.subscribe(GAME_OVER_EVENT, _setGameOverState);
+    gameEvents.subscribe(RESTART_EVENT, _restart);
+
+    return {handlePlayerActions};
 })();
 

@@ -1,8 +1,9 @@
 :root {
-    --background-slate: #374151;
-    --gameBoard-color: #607D0F;
-    --button-color: #1F0F7D;
-    --text-color: #FCDD9D;
+    --background-slate: #05386B;
+    --element-color: #379683;
+    --text-color: #EDF5E1;
+    --border-color: #8EE4AF;
+    --banner-color: #780F7D;
 }
 
 
@@ -17,17 +18,18 @@ body {
 }
 
 #title {
-    font-size: 4rem;
+    font-size: 15vw;
     font-weight: bold;
 }
 
 #board-container {
-    background-color: var(--gameBoard-color);
+    background-color: var(--element-color);
     display: grid;
     width: 90vw;
     height: 90vw;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     justify-items: center;
+    border: 10px ridge var(--border-color);
 }
 
 .cell {
@@ -42,15 +44,32 @@ body {
 
 #reset-button {
     box-sizing: border-box;
-    background-color: var(--button-color);
+    background-color: var(--element-color);
     color: var(--text-color);
-    border: 5px groove var(--text-color);
+    border: 5px groove var(--border-color);
     border-radius: 15px;
     width: 250px;
     height: 75px;
     font-size: 2rem;
 }
 
-#reset-button:hover {
-    filter: hue-rotate(25deg);
+#win-banner-container {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    right: 0px;
+    height: 150px;
+    width: 98vw;
+}
+
+#win-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px ridge #CD5FD2;
+    font-size: 4rem;
+    color: var(--text-color);
+    background-color: var(--banner-color);
+    width: 100%;
+    height: 100%;
 }

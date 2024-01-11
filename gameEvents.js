@@ -27,5 +27,8 @@ const gameEvents = {
 //event names
 const PLAYER_ACTION_EVENT = "onPlayerAction";
 const MARK_PLACED_EVENT = "onMarkPlaced";
-const GAME_WON_EVENT = "onGameWon";
+const GAME_OVER_EVENT = "onGameWon";
 const DRAW_EVENT = "onGameDraw";
+const LOCK_EVENT = "onBoardLock";
+const TURN_FINISHED_EVENT = "onTurnFinished";
+const RESTART_EVENT = "onRestart";
